@@ -1,0 +1,406 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #efeff1;
+}
+.logo{
+    color: white;
+    font-size: 40px;
+    position: relative;
+}
+.select-box{
+    width: 250px;
+    height: 50px;
+    background-color: white;
+    position: relative;
+    z-index: 1000; /* Bring it above other elements */
+    }
+    
+.select-box .options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      width: 200px; /* Adjust if needed */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: none; /* Initially hidden */
+      z-index: 1001; /* Higher than image */
+    }
+    
+.select-box.open .options {
+      display: block;
+    }
+    
+
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    position: absolute;
+    right: 200px;
+    justify-content: flex-end;  /* right में ले जाने के लिए */
+    width: auto;
+    
+
+}
+.a {
+    width:50px; 
+    height: 50px;
+    cursor: pointer;
+    
+}
+.select-heading{
+    background-color: rgb(255, 255, 255);
+    width: 150px;
+    height: 50px;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 0px;
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  
+}
+.select-heading img{
+    transition: all 0.3s;
+  
+}
+.options{
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(240, 248, 255, 0.781);
+    backdrop-filter: blur(5px);
+    margin-top: 10px;
+    padding: 10x;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 20px;
+    display: none;
+    
+    
+}
+.options.active-options{
+    display: flex;
+}
+.option{
+    border-radius: 20px;
+    padding: 5px;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+.option:hover{
+    background-color: aliceblue;
+    letter-spacing: 1px;
+}
+.rotate{
+    transform: rotate(180deg);
+   
+}
+main{
+    width: 100%;
+    height: calc(100% 80px);
+    position: relative;
+}
+.chat-box{
+    position: absolute;
+    width: 30%;
+    height: 400px;
+    bottom: 30%;
+    right: 10%;
+    top: 220px;
+    background-color: rgba(240, 248, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    transform: translateX(700px);
+    transition: all 0.5s;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  
+}
+.active-chat-box{
+    transform: translateX(0px);
+
+}
+.chat-container{
+    width: 100%;
+    height: 80%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.input-area{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+}
+.prompt{
+    width: 600px;
+    height: 50px;
+    background: black;
+    color: white;
+    border-radius: 20px;
+    font-size: 19;
+    outline: none;
+}
+.input-area button{
+    width: 60px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    
+}
+.user-chat-box{
+    width: 80%;
+    padding: 10px;
+    background-color: black;
+    border-radius: 50px 0px 50px 50px;
+    position: relative;
+    left: 70px ;
+    color: white;
+}
+.ai-chat-box{
+    width: 80%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.459);
+    border-radius: 0px 50px 50px 50px;
+    position: relative;
+    left: 0px ;
+    color: white;
+}
+.h1{
+    font-size: 2vw;
+    text-align: center;
+}
+.chatbotimg{
+    cursor: pointer;
+}
+.options a{
+    text-decoration: none;
+    color: black;
+}
+.svgs{
+    width: 50%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: absolute;
+    right: 10%;
+    top: 50px;
+    left: 450px;
+    border-color: rgb(255, 212, 212);
+    backdrop-filter: blue(5px);
+}
+.svgs img{
+    width: 400px;
+}
+.svgs::-webkit-scrollbar{
+    width: 0px;
+}
+
+
+.sidebar {
+  position: fixed;
+  background-color: #ffffff;
+  height: 96vh;
+  border-radius: 25px;
+  border-right: 1px solid #e0e0e0;
+  top: 0;
+  left: 0;
+  width: 16.666%; 
+  z-index: 1000;
+  overflow-y: auto;
+  
+  margin: 1rem; /* Added spacing around */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Optional: adds soft shadow */
+}
+.sidebar .nav-link {
+  color: #333;
+  font-weight: 500;
+  margin-top: 0.3rem;
+}
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover {
+  background-color: #DCEE98;
+  border-radius: 40px;
+}
+.sidebar .nav-link i {
+  margin-right: 10px;
+}
+.card-custom {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.progress-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.trainer-card img {
+  border-radius: 15px;
+}
+#calendar {
+  max-width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+}
+.fc .fc-daygrid-day-frame {
+  border: none !important;
+}
+.fc-daygrid-day.fc-day-today {
+  background-color: transparent !important;
+}
+.fc-daygrid-day-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+.fc-daygrid-day-number:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+.mini-card {
+  flex: 1 1 18%;
+  max-width: 35%;
+  padding: 0.4rem;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  margin: 0.4rem;
+  text-align: center;
+}
+.mini-card.canvas-full {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+.mini-card.canvas-full canvas {
+  max-height: 400px;
+}
+.mini-card canvas {
+  max-height: 130px;
+}
+.topbar {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar #great{
+  line-height: 0.7rem;
+  padding-top: 0.4rem;
+}
+
+.search-bar {
+  background-color: #ffffff;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 0 4px #fff inset;
+}
+.search-bar input {
+  border: none;
+  outline: none;
+  margin-left: 0.5rem;
+  flex: 1;
+}
+.notification-circle {
+  width: 32px;
+  height: 32px;
+  background-color: #dcee98;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+}
+.m-0{
+  margin-left: 50px;
+}
+.virtual-assistance {
+  position: fixed;
+  bottom: 20px; /* ya top: 20px; agar upar chahiye */
+  left: 60px;
+  top: 550px;
+  z-index: 9999; /* taaki sabse upar dikhe */
+  background-color: white;
+}
+
+.virtual-assistance img {
+  width: 150px; /* zarurat ke hisaab se size adjust karein */
+  height: auto;
+}
+.speak-page {
+  position: fixed;
+  bottom: 180px; /* ya top: 20px agar upar chahiye */
+  left: 500px;
+  display: flex;
+  flex-direction: column; /* column-wise arrange */
+  align-items: center;
+  z-index: 9999;
+  background: transparent; /* background khali */
+  display: none;
+}
+.active-speak-page{
+  display: flex;
+}
+
+.speak-page img {
+  width: 100px;
+  height: 100px;
+}
+
+#tee {
+  margin: 5px 0;
+  font-size: 14px;
+  color: black; /* zarurat ke hisaab se change karein */
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.1); /* Optional: light dim */
+  z-index: 999; /* below speak-page */
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}

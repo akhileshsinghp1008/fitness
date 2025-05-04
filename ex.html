@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise Statistics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .chart-container {
+      width: 90%;
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>💪 Exercise Statistics</h2>
+  <div class="chart-container">
+    <canvas id="exerciseChart"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('exerciseChart').getContext('2d');
+
+    const exerciseChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Push Ups', 'Squats', 'Plank', 'Pull Ups', 'Lunges', 'Bicep Curls'],
+        datasets: [{
+          label: 'Completed Sets Today',
+          data: [120, 95, 60, 45, 80, 70],
+          backgroundColor: [
+            '#28a745', '#17a2b8', '#ffc107', '#dc3545', '#6f42c1', '#20c997'
+          ],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Number of Sets'
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
