@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fitness Dashboard Stats</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .stat-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: bold;
+      color: #2b9348;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      color: #555;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏋️‍♂️ Fitness Center Dashboard</h1>
+
+  <div class="stats-container">
+    <div class="stat-box">
+      <div class="stat-number" id="members">0</div>
+      <div class="stat-label">Total Members</div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-number" id="active">0</div>
+      <div class="stat-label">Active Subscriptions</div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-number" id="new">0</div>
+      <div class="stat-label">New This Month</div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-number" id="ratio">0%</div>
+      <div class="stat-label">Male/Female Ratio</div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-number" id="bmi">0</div>
+      <div class="stat-label">Avg. BMI</div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-number" id="rating">0</div>
+      <div class="stat-label">Avg. Feedback Rating</div>
+    </div>
+  </div>
+
+  <script>
+    // Dummy data (backend se connect hone par dynamic bhi ho sakta hai)
+    document.getElementById('members').innerText = 325;
+    document.getElementById('active').innerText = 210;
+    document.getElementById('new').innerText = 28;
+    document.getElementById('ratio').innerText = "60/40";
+    document.getElementById('bmi').innerText = 23.7;
+    document.getElementById('rating').innerText = "4.6⭐";
+  </script>
+
+</body>
+</html>
