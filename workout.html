@@ -4,21 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   
     <style>
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color:white;
+  background-color: white;
 }
 .logo{
     color: white;
     font-size: 40px;
     position: relative;
+    margin-left: 20px;
+    bottom: 50px;
 }
 .select-box{
     width: 250px;
     height: 50px;
     background-color: white;
-}
+    position: relative;
+    z-index: 1000; /* Bring it above other elements */
+    }
+    
+.select-box .options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      width: 200px; /* Adjust if needed */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: none; /* Initially hidden */
+      z-index: 1001; /* Higher than image */
+    }
+    
+.select-box.open .options {
+      display: block;
+    }
+    
+
 
 .right-nav {
     display: flex;
@@ -28,6 +50,7 @@ body {
     right: 200px;
     justify-content: flex-end;  /* right में ले जाने के लिए */
     width: auto;
+    
 
 }
 .a {
@@ -37,9 +60,9 @@ body {
     
 }
 .select-heading{
-    background-color: aliceblue;
-    width: 200px;
-   
+    background-color: rgb(255, 255, 255);
+    width: 150px;
+    height: 50px;
     display: flex;
     font-weight: bold;
     align-items: center;
@@ -50,9 +73,11 @@ body {
     position: relative;
     z-index: 10;
     overflow: visible;
+  
 }
 .select-heading img{
     transition: all 0.3s;
+  
 }
 .options{
     width: 100%;
@@ -107,7 +132,9 @@ main{
     padding: 10px;
     transform: translateX(700px);
     transition: all 0.5s;
-
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  
 }
 .active-chat-box{
     transform: translateX(0px);
@@ -185,9 +212,9 @@ main{
     overflow-x: scroll;
     overflow-y: hidden;
     position: absolute;
-    right: 50%;
-    top: 150px;
-    left: 250px;
+    right: 10%;
+    top: 250px;
+    left: 450px;
     border-color: rgb(255, 212, 212);
     backdrop-filter: blue(5px);
 }
@@ -197,62 +224,58 @@ main{
 .svgs::-webkit-scrollbar{
     width: 0px;
 }
+.heading{
+    background-color: green;
+    width: auto;
+    height: 80px;
+}
+.right-nav{
+    top: 50px;
+ 
+}
+.backw{
+   text-align: center;
+   
+}
+
     </style>
 </head>
 <body>
+    <div class="heading">
+        <h1 class="backw"> Back workout</h1>
     <nav>
-       
-        <div class="right-nav">
-            <div class="select-box">
-                <div class="select-heading"> <span>workout</span><img src="arrow-down-01-stroke-rounded.svg" alt="image"></div>
-                <div class="options">
-                    <a href="workout.html"><div class="option">All workout</div></a>
-                    <a href="back.html"><div class="option">back workout</div></a>
-                    <a href="chest.html"><div class="option">chest workout</div></a>
-                    <a href="biceps-triceps.html"><div class="option">biceps workout</div></a>
-                    <a href="sholder.html"><div class="option">shoulder</div></a>
-                    <a href="lag.html"><div class="option">leg workout</div></a>
-                </div>
-
-            </div>
-            <img class="a" src="chatbot.svg" alt="image" id="chatbotimg">
-        </div>
+        <a href="fit.html" class="logo">
+            <img src="home-06-stroke-rounded.svg" height="50px" width="50px">  
+        </a> 
     </nav>
     <main>
-        <div class="chat-box">
-            <div class="h1">talk to fitness assistance</div>
-            <div class="chat-container">
-                
-            </div>
-            <div class="input-area">
-                <input type="text" placeholder="ask anythink......." class="prompt">
-                <button><img src="arrow-up-04-stroke-rounded.svg" > </button>
-            </div>
-        </div>
-
-
-
+ </div>
         <div class="svgs">
+            <img src="biceps1.gif" alt="" width="200px">
+            <img src="biceps2.gif" alt="" width="200px">
+            <img src="biceps3.gif" alt="" width="200px">  
+            <img src="back4.gif" alt="" width="200px">
+            <img src="back5.gif" alt="" width="200px">
+            <img src="back1.gif" alt="" width="200px">
+            <img src="back2.gif" alt="" width="200px">
+            <img src="back3.gif" alt="" width="200px">  
+            <img src="back4.gif" alt="" width="200px">
+            <img src="chest1 (1).gif" alt="" width="200px">
+            <img src="chest1.gif" alt="" width="200px">
+            <img src="chest2 (1).gif" alt="" width="200px">
+            <img src="chest2.gif" alt="" width="200px">  
+            <img src="chest3.gif" alt="" width="200px">
+            <img src="chest4.gif" alt="" width="200px">
+            <img src="chest5.gif" alt="" width="200px">
             <img src="leg.gif" alt="" width="200px">
-            <img src="leg2.gif" alt="" width="200px">
+            <img src="leg2.gif" alt="" width="200px">  
             <img src="leg3.gif" alt="" width="200px">
             <img src="leg4.gif" alt="" width="200px">
-            <img src="leg5.gif" alt="" width="200px">
-            <img src="shoulder1.gif" alt="" width="200px">
-            <img src="shoulder2.gif" alt="" width="200px">
-            <img src="shoulder3.gif" alt="" width="200px">
-            <img src="shoulder4.gif" alt="" width="200px">
-            <img src="shoulder5.gif" alt="" width="200px">
-            <img src="triceps1.gif" alt="" width="200px">
-            <img src="triceps2.gif" alt="" width="200px">
-            <img src="workout1.gif" alt="" width="200px">
-            <img src="workout2.gif" alt="" width="200px">
-            <img src="workout3.gif" alt="" width="200px">
-            <img src="workout4.gif" alt="" width="200px">
-            <img src="workout5.gif" alt="" width="200px">
+
+
+
         </div>
     </main>
-
-    <script src="fit.js"></script>
+<script src="fit.js"></script>
 </body>
 </html>

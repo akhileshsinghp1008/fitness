@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 60px 0;
+    }
+    .header h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+    .header p {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .tracker-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    .input-field {
+      width: 300px;
+      padding: 12px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .submit-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+    .tracker-table {
+      width: 80%;
+      margin: 40px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .tracker-table th, .tracker-table td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .tracker-table th {
+      background-color: #007bff;
+      color: white;
+    }
+    .tracker-table td {
+      color: #333;
+    }
+    .table-header {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <div class="header">
+    <h1>🏋️‍♂️ Fitness Tracker</h1>
+    <p>Track your daily fitness progress and stay motivated!</p>
+  </div>
+
+  <!-- Fitness Tracker Form -->
+  <div class="tracker-form">
+    <input type="text" id="exercise" class="input-field" placeholder="Enter Exercise Type (e.g., Squats, Push-ups)" required>
+    <input type="number" id="duration" class="input-field" placeholder="Enter Duration (in minutes)" required>
+    <input type="number" id="sets" class="input-field" placeholder="Enter Sets" required>
+    <input type="number" id="reps" class="input-field" placeholder="Enter Reps per Set" required>
+    <input type="number" id="calories" class="input-field" placeholder="Enter Calories Burned" required>
+    <button class="submit-btn" onclick="addTrackerEntry()">Add Entry</button>
+  </div>
+
+  <!-- Tracker Table Section -->
+  <div class="table-header">
+    <h2>Your Fitness Progress</h2>
+  </div>
+  <table class="tracker-table" id="trackerTable">
+    <thead>
+      <tr>
+        <th>Exercise</th>
+        <th>Duration (mins)</th>
+        <th>Sets</th>
+        <th>Reps per Set</th>
+        <th>Calories Burned</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Entries will appear here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Function to add tracker entries
+    function addTrackerEntry() {
+      // Get input values
+      const exercise = document.getElementById('exercise').value;
+      const duration = document.getElementById('duration').value;
+      const sets = document.getElementById('sets').value;
+      const reps = document.getElementById('reps').value;
+      const calories = document.getElementById('calories').value;
+
+      // Validate inputs
+      if (!exercise || !duration || !sets || !reps || !calories) {
+        alert("Please fill all fields!");
+        return;
+      }
+
+      // Create a new row
+      const newRow = document.createElement('tr');
+
+      // Create new cells
+      const exerciseCell = document.createElement('td');
+      exerciseCell.textContent = exercise;
+
+      const durationCell = document.createElement('td');
+      durationCell.textContent = duration;
+
+      const setsCell = document.createElement('td');
+      setsCell.textContent = sets;
+
+      const repsCell = document.createElement('td');
+      repsCell.textContent = reps;
+
+      const caloriesCell = document.createElement('td');
+      caloriesCell.textContent = calories;
+
+      // Append cells to the row
+      newRow.appendChild(exerciseCell);
+      newRow.appendChild(durationCell);
+      newRow.appendChild(setsCell);
+      newRow.appendChild(repsCell);
+      newRow.appendChild(caloriesCell);
+
+      // Append the row to the table
+      document.getElementById('trackerTable').querySelector('tbody').appendChild(newRow);
+
+      // Clear input fields
+      document.getElementById('exercise').value = '';
+      document.getElementById('duration').value = '';
+      document.getElementById('sets').value = '';
+      document.getElementById('reps').value = '';
+      document.getElementById('calories').value = '';
+    }
+  </script>
+
+</body>
+</html>

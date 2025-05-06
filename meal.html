@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Plan Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      padding: 60px 0;
+    }
+    .header h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+    .header p {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .meal-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    .input-field {
+      width: 300px;
+      padding: 12px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .submit-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+    .meal-table {
+      width: 80%;
+      margin: 40px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .meal-table th, .meal-table td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .meal-table th {
+      background-color: #28a745;
+      color: white;
+    }
+    .meal-table td {
+      color: #333;
+    }
+    .table-header {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <div class="header">
+    <h1>🍽️ Meal Plan Tracker</h1>
+    <p>Track your daily meals and stay on top of your nutrition goals!</p>
+  </div>
+
+  <!-- Meal Plan Form -->
+  <div class="meal-form">
+    <input type="text" id="mealType" class="input-field" placeholder="Enter Meal Type (Breakfast, Lunch, Dinner, Snack)" required>
+    <input type="text" id="mealDescription" class="input-field" placeholder="Enter Meal Description" required>
+    <input type="number" id="calories" class="input-field" placeholder="Enter Calories" required>
+    <button class="submit-btn" onclick="addMealEntry()">Add Meal</button>
+  </div>
+
+  <!-- Meal Table Section -->
+  <div class="table-header">
+    <h2>Your Daily Meal Plan</h2>
+  </div>
+  <table class="meal-table" id="mealTable">
+    <thead>
+      <tr>
+        <th>Meal Type</th>
+        <th>Meal Description</th>
+        <th>Calories</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Entries will appear here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Function to add meal entries
+    function addMealEntry() {
+      // Get input values
+      const mealType = document.getElementById('mealType').value;
+      const mealDescription = document.getElementById('mealDescription').value;
+      const calories = document.getElementById('calories').value;
+
+      // Validate inputs
+      if (!mealType || !mealDescription || !calories) {
+        alert("Please fill all fields!");
+        return;
+      }
+
+      // Create a new row
+      const newRow = document.createElement('tr');
+
+      // Create new cells
+      const mealTypeCell = document.createElement('td');
+      mealTypeCell.textContent = mealType;
+
+      const mealDescriptionCell = document.createElement('td');
+      mealDescriptionCell.textContent = mealDescription;
+
+      const caloriesCell = document.createElement('td');
+      caloriesCell.textContent = calories;
+
+      // Append cells to the row
+      newRow.appendChild(mealTypeCell);
+      newRow.appendChild(mealDescriptionCell);
+      newRow.appendChild(caloriesCell);
+
+      // Append the row to the table
+      document.getElementById('mealTable').querySelector('tbody').appendChild(newRow);
+
+      // Clear input fields
+      document.getElementById('mealType').value = '';
+      document.getElementById('mealDescription').value = '';
+      document.getElementById('calories').value = '';
+    }
+  </script>
+
+</body>
+</html>

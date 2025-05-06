@@ -348,9 +348,7 @@ canvas {
   justify-content: center;
   margin-left: 1rem;
 }
-.m-0{
-  margin-left: 50px;
-}
+
 .virtual-assistance {
   position: fixed;
   bottom: 20px; /* ya top: 20px; agar upar chahiye */
@@ -367,7 +365,7 @@ canvas {
 .speak-page {
   position: fixed;
   bottom: 180px; /* ya top: 20px agar upar chahiye */
-  left: 500px;
+  left: 700px;
   display: flex;
   flex-direction: column; /* column-wise arrange */
   align-items: center;
@@ -380,14 +378,18 @@ canvas {
 }
 
 .speak-page img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
+  background-image: none;
+  object-fit: cover; /* Image ko crop hone se bachata hai */
+  border-radius: 50%;
+  
 }
 
 #tee {
   margin: 5px 0;
   font-size: 14px;
-  color: black; /* zarurat ke hisaab se change karein */
+  color: black;
 }
 .overlay {
   position: fixed;
