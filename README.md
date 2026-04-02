@@ -10,6 +10,4 @@ I’m excited to share my latest project – a Fitness Dashboard that helps trac
 
 This project helped me understand how data can improve daily lifestyle decisions and fitness tracking 💪
 
-🔗 Check out the project on GitHub: (Add your link here)
 
-#DataAnalytics #PowerBI #Python #Fitness #Dashboard #Learning #Projects
